@@ -1,4 +1,4 @@
-package models;
+package main.java.models;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;

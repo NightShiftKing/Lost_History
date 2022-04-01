@@ -1,4 +1,4 @@
-package models;
+package main.java.models;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -10,7 +10,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Enemy extends GameObjects {
-	private String image = "/images/Enemy.png";
+	private static final String ENEMY_IMAGE = "/main/java/images/Enemy.png";
 
 	int speed = 4;
 
@@ -24,7 +24,7 @@ public class Enemy extends GameObjects {
 	}
 
 	public Image getEnemyImage() {
-		ImageIcon i = new ImageIcon(getClass().getResource(image));
+		ImageIcon i = new ImageIcon(getClass().getResource(ENEMY_IMAGE));
 		return i.getImage();
 	}
 

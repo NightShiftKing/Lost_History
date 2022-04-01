@@ -1,4 +1,4 @@
-package models;
+package main.java.models;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -10,8 +10,10 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Animals extends GameObjects {
+	
+	static final Logger logger = Logger.getLogger(Animals.class);
 
-	private String image = "/images/bird.png";
+	private static final  String BIRD_IMAGE  = "/main/java/images/bird.png";
 
 	int speed = 2;
 
@@ -21,11 +23,16 @@ public class Animals extends GameObjects {
 	}
 
 	public Image getAnimalsImage() {
-		ImageIcon i = new ImageIcon(getClass().getResource(image));
+		
+		
+		ImageIcon i = new ImageIcon(getClass().getResource(BIRD_IMAGE));
 		return i.getImage();
+		
 	}
+	
 
 	public void draw(Graphics2D g2D) {
+		
 		g2D.drawImage(getAnimalsImage(), x, y, null);
 
 	}

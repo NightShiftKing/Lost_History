@@ -1,6 +1,4 @@
-package models;
-
-import javax.swing.JFrame;
+package main.java.models;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -13,7 +11,7 @@ public class main {
 
 		BasicConfigurator.configure();
 
-		logger.info("code is working");
+		logger.info("initalizing game...");
 
 		new Frame();
 

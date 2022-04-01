@@ -1,8 +1,9 @@
-package models;
+package main.java.models;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
@@ -16,13 +17,13 @@ import org.apache.log4j.Logger;
 public class Player extends GameObjects {
 	int health = 100;
 	int stamina = 100;
-	int food = 100;
+	ArrayList<Food> foods;
 	int water = 100;
 	int stealth = 100;
 	boolean sneak = false;
 	
-
-	private String PlayerImage = "/images/newsteve.png";
+	
+	private static final String PLAYER_IMAGE = "/main/java/images/newsteve.png";
 	
 	// TODO inventory ArrayList<String>
 
@@ -31,11 +32,65 @@ public class Player extends GameObjects {
 	
 	
 	
-	public Player(int x, int y) {
+	public Player(int x, int y, ArrayList<Food> foods) {
 		super(x,y);
+		Food food = new Food("Rations", 5);
+		foods.add(food);
+		this.foods = foods;
+		
 	}
 	
 	
+	public int getHealth() {
+		return health;
+	}
+
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+
+	public int getStamina() {
+		return stamina;
+	}
+
+
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
+	}
+
+
+	public ArrayList<Food> getFoods() {
+		return foods;
+	}
+
+
+	public void setFoods(ArrayList<Food> foods) {
+		this.foods = foods;
+	}
+
+
+	public int getStealth() {
+		return stealth;
+	}
+
+
+	public void setStealth(int stealth) {
+		this.stealth = stealth;
+	}
+
+
+	public boolean isSneak() {
+		return sneak;
+	}
+
+
+	public void setSneak(boolean sneak) {
+		this.sneak = sneak;
+	}
+
+
 	public void draw(Graphics2D g2D){
 		g2D.drawImage(getPlayerImage(), x, y, null);
 		g2D.drawRect(0, 0, 100, 25);
@@ -99,7 +154,7 @@ public void keyPressed(KeyEvent e) {
 	}
 	
 	public Image getPlayerImage(){
-		ImageIcon i = new ImageIcon(getClass().getResource(PlayerImage));
+		ImageIcon i = new ImageIcon(getClass().getResource(PLAYER_IMAGE));
 		return i.getImage();
 		
 	

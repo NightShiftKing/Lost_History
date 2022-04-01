@@ -1,4 +1,4 @@
-package models;
+package main.java.models;
 
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -10,7 +10,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Plants extends GameObjects {
-	private String image = "/images/tree.png";
+	private static final  String TREE_IMAGE  = "/main/java/images/tree.png";
 
 	public Plants(int x, int y) {
 		super(x, y);
@@ -22,7 +22,7 @@ public class Plants extends GameObjects {
 	}
 
 	public Image getPlantsImage() {
-		ImageIcon i = new ImageIcon(getClass().getResource(image));
+		ImageIcon i = new ImageIcon(getClass().getResource(TREE_IMAGE));
 		return i.getImage();
 	}
 
