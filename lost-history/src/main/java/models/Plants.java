@@ -10,7 +10,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Plants extends GameObjects {
-	private static final  String TREE_IMAGE  = "/main/java/images/tree.png";
+	private static final  String TREE_IMAGE  = "/main/java/images/appletree.png";
 
 	public Plants(int x, int y) {
 		super(x, y);

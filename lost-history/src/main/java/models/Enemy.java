@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 public class Enemy extends GameObjects {
 	private static final String ENEMY_IMAGE = "/main/java/images/Enemy.png";
 
-	int speed = 4;
+	int speed = 3;
 
 	public Enemy(int x, int y) {
 		super(x, y);
@@ -29,15 +29,15 @@ public class Enemy extends GameObjects {
 	}
 
 	public void update() {
-		x += speed;
+		y += speed;
 
-		if (x < -15) {
-			speed = 4;
+		if (y < -15) {
+			speed = 3;
 		}
 
-		if (x > 650) {
-			speed = -4;
+		if (y > 850) {
+			speed = -3;
 		}
-
+		
 	}
 }

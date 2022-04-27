@@ -21,9 +21,14 @@ public class Player extends GameObjects {
 	int water = 100;
 	int stealth = 100;
 	boolean sneak = false;
+	ArrayList<Items> bagItems;
 	
 	
-	private static final String PLAYER_IMAGE = "/main/java/images/newsteve.png";
+	private static final String PLAYER_IMAGE = "/main/java/images/steve.png";
+	private static final String HEALTH_BAR = "/main/java/images/health.png";
+	
+	
+	
 	
 	// TODO inventory ArrayList<String>
 
@@ -34,7 +39,7 @@ public class Player extends GameObjects {
 	
 	public Player(int x, int y, ArrayList<Food> foods) {
 		super(x,y);
-		Food food = new Food("Rations", 5);
+		Food food = new Food("Rations");
 		foods.add(food);
 		this.foods = foods;
 		
@@ -89,18 +94,39 @@ public class Player extends GameObjects {
 	public void setSneak(boolean sneak) {
 		this.sneak = sneak;
 	}
+	
+	
+
+
+	public ArrayList<Items> getBagItems() {
+		return bagItems;
+	}
+
+
+	public void setBagItems(ArrayList<Items> bagItems) {
+		this.bagItems = bagItems;
+	}
+
+	
+
+	public int getWater() {
+		return water;
+	}
+
+
+	public void setWater(int water) {
+		this.water = water;
+	}
 
 
 	public void draw(Graphics2D g2D){
-		g2D.drawImage(getPlayerImage(), x, y, null);
-		g2D.drawRect(0, 0, 100, 25);
+		g2D.drawImage(getPlayerImages(), x, y, null);
+		g2D.drawImage(getHealthBarImage(), -20, -25, null );
+		g2D.setColor(Color.RED);
+		g2D.fillRect(17, 60, health, 20);
+	
 		
-		g2D.setColor(Color.red);
-		g2D.fillRect(0, 0, health, 25);
-		g2D.setColor(Color.BLACK);
-		g2D.drawRect(0, 26, stamina, 25);
-		g2D.setColor(Color.CYAN);
-		g2D.fillRect(0, 26, stamina, 25);
+		
 	}
 	
 	
@@ -111,17 +137,17 @@ public class Player extends GameObjects {
 		
 			x+=velx;
 			y+=vely;
-			if(x < -15) {
-				x=-15;
+			if(x < -40) {
+				x=-40;
 			}
 			if(y < 0) {
 				y = 0;
 			}
-			if(x > 650 ) {
-				x = 650;
+			if(x > 1680 ) {
+				x = 1680;
 			}
-			if(y > 620) {
-				y = 620;
+			if(y > 1850) {
+				y = 1850;
 			}
 	}
 	
@@ -129,13 +155,13 @@ public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		
 		if(key==KeyEvent.VK_D) {
-			velx = 4;
+			velx = 3;
 		} else if(key==KeyEvent.VK_A) {
-			velx = -4;
+			velx = -3;
 		} else if(key==KeyEvent.VK_W) {
-			vely = -4;
+			vely = -3;
 		} else if(key==KeyEvent.VK_S) {
-			vely = 4;
+			vely = 3;
 		}
 		
 	}
@@ -153,17 +179,18 @@ public void keyPressed(KeyEvent e) {
 		}
 	}
 	
-	public Image getPlayerImage(){
+	public Image getPlayerImages(){
 		ImageIcon i = new ImageIcon(getClass().getResource(PLAYER_IMAGE));
 		return i.getImage();
 		
-	
+		
 	
 	}
 	
-		
-	
-	
+	public Image getHealthBarImage() {
+		ImageIcon i = new ImageIcon(getClass().getResource(HEALTH_BAR));
+		return i.getImage();
+	}
 	
 }
 

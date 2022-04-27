@@ -21,11 +21,12 @@ public class Frame extends JFrame {
 
 		// this controls the frame
 		JFrame frame = new JFrame();
-		frame.setSize(700, 700);
+		frame.setSize(2000, 2000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
 
 	}
 

@@ -8,10 +8,11 @@ public class PlayerStatisicsService {
 	public int handleHealth(Player player, Enemy enemy) {
 		int totalHealth = player.getHealth();
 
-		if ((enemy.x == player.x) && (enemy.y == player.y)) {
-			totalHealth = totalHealth - 1;
-		}
-
+		
+		  if ((enemy.x == player.x) && (enemy.y == player.y)) { totalHealth =
+		  totalHealth - 1; }
+		 
+		
 		if (player.getFoods() != null) {
 			int totalAmountFood = 0;
 			
