@@ -1,15 +1,15 @@
 package main.java.models;
 
-import main.java.models.Player;
 public class Items extends GameObjects {
-	
-public boolean allowpickup; 
-public String name; 
 
-	public Items(int x , int y ) {
-	super(x,y);
-	
+	private static final long serialVersionUID = 1L;
 
+	public boolean allowpickup = false; 
+	public String name;
+
+	public Items(int x, int y) {
+		super(x, y);
+		
 	}
 
 	public boolean isAllowpickup() {
@@ -27,6 +27,8 @@ public String name;
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public void disapear(int x , int y) {
+		super.setX(1000);
+	}
 
 }

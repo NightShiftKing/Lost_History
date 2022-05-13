@@ -12,14 +12,14 @@ public class PlayerStatisicsService {
 
 	public int handleHealth(Player player, Enemy enemy) {
 		int totalHealth = player.getHealth();
-		int EHealth = enemy.getEnemyHealth(); 
+		int EHealth = enemy.getEnemyHealth();
 
 		if (totalHealth <= 0) {
 			totalHealth = 0;
 		}
 
 		if ((enemy.x == player.x) && (enemy.y == player.y)) {
-			totalHealth = totalHealth - 1;
+			totalHealth = totalHealth - 10;
 
 		}
 
@@ -29,16 +29,15 @@ public class PlayerStatisicsService {
 //			}
 //
 //		}
-		
 
-		if ((enemy.x == player.x) && (enemy.y == player.y) && (player.attack == true )) {                                 
-			EHealth = EHealth - 10; 
+		if ((enemy.x == player.x) && (enemy.y == player.y) && (player.isAttack() == true)) {
+			EHealth = EHealth - 5;
 		}
-		
-		if(EHealth <= 0 ) {
-			
-			enemy.x = 10000; 
-			
+
+		if (EHealth <= 0) {
+
+			enemy.x = 10000;
+
 		}
 
 		player.setHealth(totalHealth);

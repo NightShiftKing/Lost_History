@@ -7,32 +7,35 @@ import javax.swing.ImageIcon;
 
 public class ITEM_Stick extends Items {
 	private static final  String STICK_IMAGE  = "/main/java/images/Stick.png";
-	int ObjHeight;
-	int ObjWidth; 
+	 
+	
 
-	public ITEM_Stick(int x, int y) {
+	public ITEM_Stick(int x , int y) {
 		super(x, y);
-		
+		super.allowpickup = true; 
+		super.setName("Evil Staff");
 	}
 	
 	public void draw(Graphics2D g2D) {
 		g2D.drawImage(getPlantsImage(), x, y, null);
 	}
 
-	public int getObjHeight() {
-		return ObjHeight;
+	
+
+	public int getY() {
+		return y;
 	}
 
-	public void setObjHeight(int objHeight) {
-		ObjHeight = objHeight;
+	public void setY(int y) {
+		this.y = y;
 	}
 
-	public int getObjWidth() {
-		return ObjWidth;
+	public int getX() {
+		return x;
 	}
 
-	public void setObjWidth(int objWidth) {
-		ObjWidth = objWidth;
+	public void setX(int x) {
+		this.x = x;
 	}
 
 	public static String getStickImage() {
@@ -43,5 +46,8 @@ public class ITEM_Stick extends Items {
 		ImageIcon i = new ImageIcon(getClass().getResource(STICK_IMAGE));
 		return i.getImage();
 	}
+	
+	
+	
 
 }

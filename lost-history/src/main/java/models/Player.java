@@ -16,26 +16,30 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import main.java.services.InventoryService;
 import main.java.services.PlayerStatisicsService;
 
-public class Player extends GameObjects   {
+public class Player extends GameObjects {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	int health = 100;
-	int stamina = 100;
-	ArrayList<Food> foods;
-	int water = 100;
-	int stealth = 100;
-	boolean sneak = false;
-	ArrayList<Items> bagItems;
-	public boolean attack = false;
+	private int health = 100;
+	private int stamina = 100;
+	private ArrayList<Food> foods;
+	private int water = 100;
+	private int stealth = 100;
+	private boolean sneak = false;
+	private ArrayList<Items> bagItems = new ArrayList<>(); 
+	private boolean attack = false;
+
+	private boolean loot = false;
 
 	private static final String PLAYER_IMAGE = "/main/java/images/steve.png";
 	private static final String HEALTH_BAR = "/main/java/images/health.png";
 	private static final String INVENTORY_BAR = "/main/java/images/Inventory_Bar.png";
-	PlayerStatisicsService playerService;
+	PlayerStatisicsService playerService = new PlayerStatisicsService();
+	private InventoryService inventoryService;
 
 	// TODO inventory ArrayList<String>
 
@@ -52,6 +56,14 @@ public class Player extends GameObjects   {
 		height = y + 20;
 
 		new Rectangle(x, y, width, height);
+	}
+
+	public boolean isLoot() {
+		return loot;
+	}
+
+	public void setLoot(boolean loot) {
+		this.loot = loot;
 	}
 
 	public int getVelx() {
@@ -123,7 +135,7 @@ public class Player extends GameObjects   {
 	}
 
 	public ArrayList<Items> getBagItems() {
-		return bagItems;
+		return bagItems; 
 	}
 
 	public void setBagItems(ArrayList<Items> bagItems) {
@@ -138,8 +150,6 @@ public class Player extends GameObjects   {
 		this.water = water;
 	}
 
-	
-	
 	public boolean isAttack() {
 		return attack;
 	}
@@ -165,7 +175,7 @@ public class Player extends GameObjects   {
 		g2D.drawImage(getPlayerImages(), x, y, null);
 		g2D.drawImage(getHealthBarImage(), -20, -25, null);
 		g2D.setColor(Color.RED);
-		g2D.fillRect(17, 60, health, 20);
+		g2D.fillRect(17, 60, this.health, 20);
 		// g2D.drawRect(x, y, width, height);
 
 	}
@@ -219,19 +229,18 @@ public class Player extends GameObjects   {
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		
-		
+
 	}
 
 	public void mousePressed(MouseEvent e) {
-			attack = true; 
+		loot = true; 
+		attack = true;
 
-		
 	}
 
 	public void mouseReleased(MouseEvent e) {
-		attack = false; 
-	
+		attack = false;
+		loot = false; 
 	}
 
 	public void mouseEntered(MouseEvent e) {
@@ -256,6 +265,14 @@ public class Player extends GameObjects   {
 	public Image getInventoryBarImage() {
 		ImageIcon i = new ImageIcon(getClass().getResource(INVENTORY_BAR));
 		return i.getImage();
+	}
+
+	public InventoryService getInventoryService() {
+		return inventoryService;
+	}
+
+	public void setInventoryService(InventoryService inventoryService) {
+		this.inventoryService = inventoryService;
 	}
 
 }

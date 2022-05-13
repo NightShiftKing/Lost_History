@@ -43,6 +43,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	public Timer gamelooptimer;
 
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
+	InventoryService inventoryService = new InventoryService(); 
 
 	static final Logger logger = Logger.getLogger(MyPanel.class);
 
@@ -54,11 +55,11 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		ArrayList<Food> starterFoods = new ArrayList<>();
 		Food food = new Food("Rations");
 		starterFoods.add(food);
-		p = new Player(100, 100, starterFoods);
+		p = new Player(300, 300, starterFoods);
 		En = new Enemy(100, 100);
 		a = new Animals(150, 250);
 		Pl = new Plants(250, 300);
-		IStick = new ITEM_Stick(300, 300);
+		IStick = new ITEM_Stick(300 , 300);
 		addKeyListener(new KeyInput(p));
 		addMouseListener(new MouseInput(p));
 		// Create a event handler that when a click happends in a item class call the
@@ -169,7 +170,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		a.update();
 		Pl.update();
 		playerService.handleHealth(p, En);
-
+		inventoryService.addToInventory(IStick, p, IStick);
 	}
 
 	@Override
