@@ -17,6 +17,10 @@ public class Plants extends GameObjects {
 
 	}
 
+	public static String getTreeImage() {
+		return TREE_IMAGE;
+	}
+
 	public void draw(Graphics2D g2D) {
 		g2D.drawImage(getPlantsImage(), x, y, null);
 	}

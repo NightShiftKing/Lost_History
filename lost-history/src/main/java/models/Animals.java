@@ -22,6 +22,22 @@ public class Animals extends GameObjects {
 
 	}
 
+	public int getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+
+	public static Logger getLogger() {
+		return logger;
+	}
+
+	public static String getBirdImage() {
+		return BIRD_IMAGE;
+	}
+
 	public Image getAnimalsImage() {
 		
 		

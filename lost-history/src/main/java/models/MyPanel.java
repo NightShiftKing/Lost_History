@@ -21,31 +21,31 @@ import org.apache.log4j.PatternLayout;
 import main.java.services.InventoryService;
 import main.java.services.PlayerStatisicsService;
 
-public class MyPanel extends JPanel implements ActionListener , MouseListener {
+public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	// Need to fix timer
-	Player p;
+	public Player p;
 
-	Enemy En;
+	public Enemy En;
 
 	Animals a;
 
 	Plants Pl;
-	
-	ITEM_Stick IStick; 
-	
-	InventoryService Inv; 
-	
+
+	ITEM_Stick IStick;
+
+	InventoryService Inv;
+
 	public Timer gamelooptimer;
-	
+
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
-	
+
 	static final Logger logger = Logger.getLogger(MyPanel.class);
-	
+
 	private static final String BACKGROUND_IMAGE = "/main/java/images/Floor.png";
 
 	public MyPanel() {
@@ -54,18 +54,92 @@ public class MyPanel extends JPanel implements ActionListener , MouseListener {
 		ArrayList<Food> starterFoods = new ArrayList<>();
 		Food food = new Food("Rations");
 		starterFoods.add(food);
-		p = new Player(200, 200, starterFoods);
-		En = new Enemy(200, 200);
+		p = new Player(100, 100, starterFoods);
+		En = new Enemy(100, 100);
 		a = new Animals(150, 250);
 		Pl = new Plants(250, 300);
-		IStick = new ITEM_Stick(300, 300); 
+		IStick = new ITEM_Stick(300, 300);
 		addKeyListener(new KeyInput(p));
-		// Create a event handler that when a click happends in a item class call the inventory service and add to the inventory 
+		addMouseListener(new MouseInput(p));
+		// Create a event handler that when a click happends in a item class call the
+		// inventory service and add to the inventory
 		setFocusable(true);
 
 		gamelooptimer = new Timer(10, this);
 		gamelooptimer.start();
 
+	}
+
+	public Player getP() {
+		return p;
+	}
+
+	public void setP(Player p) {
+		this.p = p;
+	}
+
+	public Enemy getEn() {
+		return En;
+	}
+
+	public void setEn(Enemy en) {
+		En = en;
+	}
+
+	public Animals getA() {
+		return a;
+	}
+
+	public void setA(Animals a) {
+		this.a = a;
+	}
+
+	public Plants getPl() {
+		return Pl;
+	}
+
+	public void setPl(Plants pl) {
+		Pl = pl;
+	}
+
+	public ITEM_Stick getIStick() {
+		return IStick;
+	}
+
+	public void setIStick(ITEM_Stick iStick) {
+		IStick = iStick;
+	}
+
+	public InventoryService getInv() {
+		return Inv;
+	}
+
+	public void setInv(InventoryService inv) {
+		Inv = inv;
+	}
+
+	public Timer getGamelooptimer() {
+		return gamelooptimer;
+	}
+
+	public void setGamelooptimer(Timer gamelooptimer) {
+		this.gamelooptimer = gamelooptimer;
+	}
+
+	public PlayerStatisicsService getPlayerService() {
+		return playerService;
+	}
+
+	public void setPlayerService(PlayerStatisicsService playerService) {
+		this.playerService = playerService;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public static Logger getLogger() {
+		return logger;
 	}
 
 	public void paint(Graphics g) {
@@ -74,8 +148,8 @@ public class MyPanel extends JPanel implements ActionListener , MouseListener {
 
 		p.draw(g2D);
 		En.draw(g2D);
-		playerService.handleHealth(p, En);
-		logger.info("PlayerHealth = " + String.valueOf(p.getHealth()));
+
+		// logger.info("PlayerHealth = " + String.valueOf(p.getHealth()));
 		a.draw(g2D);
 		Pl.draw(g2D);
 		IStick.draw(g2D);
@@ -94,7 +168,7 @@ public class MyPanel extends JPanel implements ActionListener , MouseListener {
 		p.update();
 		a.update();
 		Pl.update();
-		
+		playerService.handleHealth(p, En);
 
 	}
 
