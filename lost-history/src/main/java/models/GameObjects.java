@@ -6,7 +6,7 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-public class GameObjects  {
+public class GameObjects   {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class GameObjects  {
 
 
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
@@ -37,7 +37,7 @@ public class GameObjects  {
 
 
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 
@@ -53,7 +53,7 @@ public class GameObjects  {
 
 
 
-	public int getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
@@ -69,7 +69,7 @@ public class GameObjects  {
 
 
 
-	public int getWidth() {
+	public double getWidth() {
 		return width;
 	}
 
@@ -93,9 +93,10 @@ public class GameObjects  {
 
 
 
-	public GameObjects(int x, int y) {
+	public GameObjects(int x, int y  ) {
 		this.x = x;
 		this.y = y;
+		
 
 	}
 

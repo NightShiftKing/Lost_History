@@ -45,18 +45,45 @@ public class Player extends GameObjects {
 
 	int velx = 0;
 	int vely = 0;
+	int width = this.x - 48;
+	int height = this.y + 20;
+	
 
-	public Player(int x, int y, ArrayList<Food> foods) {
-		super(x, y);
+	public Player(int x, int y,   ArrayList<Food> foods) {
+		super(x, y );
 		Food food = new Food("Rations");
 		foods.add(food);
 		this.foods = foods;
 
-		width = x - 48;
-		height = y + 20;
+		this.width = this.x - 48;
+		this.height = this.y + 20;
 
-		new Rectangle(x, y, width, height);
+		new Rectangle(x, y, this.width, this.height);
 	}
+	
+
+	
+
+
+	public double getWidth() {
+		return width;
+	}
+
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+
+	public double getHeight() {
+		return height;
+	}
+
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 
 	public boolean isLoot() {
 		return loot;
@@ -203,13 +230,13 @@ public class Player extends GameObjects {
 		int key = e.getKeyCode();
 
 		if (key == KeyEvent.VK_D) {
-			velx = 3;
+			velx = 4;
 		} else if (key == KeyEvent.VK_A) {
-			velx = -3;
+			velx = -4;
 		} else if (key == KeyEvent.VK_W) {
-			vely = -3;
+			vely = -4;
 		} else if (key == KeyEvent.VK_S) {
-			vely = 3;
+			vely = 4;
 		}
 
 	}

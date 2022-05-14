@@ -8,12 +8,12 @@ public class main {
 	static final Logger logger = Logger.getLogger(main.class);
 
 	public static void main(String[] args) {
-
 		BasicConfigurator.configure();
+		
 
-		logger.info("initalizing game...");
+				logger.info("initalizing game...");
 
-		new Frame();
+		new Frame(); 
 
 	}
 

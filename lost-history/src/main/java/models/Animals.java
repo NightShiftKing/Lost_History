@@ -16,10 +16,14 @@ public class Animals extends GameObjects {
 	private static final  String BIRD_IMAGE  = "/main/java/images/bird.png";
 
 	int speed = 2;
+	int width;
+	int height;
+	
 
-	public Animals(int x, int y) {
+	public Animals(int x, int y ) {
 		super(x, y);
-
+		this.width = x + 10;
+		this.height = y + 10;
 	}
 
 	public int getSpeed() {

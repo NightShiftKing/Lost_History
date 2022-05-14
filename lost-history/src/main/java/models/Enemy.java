@@ -22,7 +22,7 @@ public class Enemy extends GameObjects {
 	
 		width = x - 38; 
 		height = y + 15;
-		new Rectangle(x,y,width,height); 
+		new Rectangle(x,y,this.width,this.height); 
 	}
 	
 	
@@ -70,7 +70,7 @@ public class Enemy extends GameObjects {
 	}
 
 	public void update() {
-		y += speed;
+	
 
 		if (y < -15) {
 			speed = 3;

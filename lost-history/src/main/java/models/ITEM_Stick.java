@@ -10,10 +10,12 @@ public class ITEM_Stick extends Items {
 	 
 	
 
-	public ITEM_Stick(int x , int y) {
+	public ITEM_Stick(int x , int y ) {
 		super(x, y);
 		super.allowpickup = true; 
 		super.setName("Evil Staff");
+		this.width = x + 20;
+		this.height = y + 20; 
 	}
 	
 	public void draw(Graphics2D g2D) {
@@ -22,7 +24,7 @@ public class ITEM_Stick extends Items {
 
 	
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 
@@ -30,7 +32,7 @@ public class ITEM_Stick extends Items {
 		this.y = y;
 	}
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 

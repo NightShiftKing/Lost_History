@@ -18,6 +18,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+import main.java.services.EnemyService;
 import main.java.services.InventoryService;
 import main.java.services.PlayerStatisicsService;
 
@@ -28,9 +29,12 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	private static final long serialVersionUID = 1L;
 
 	// Need to fix timer
-	public Player p;
 
 	public Enemy En;
+	
+	Frame frame;
+
+	Player p;
 
 	Animals a;
 
@@ -43,13 +47,15 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	public Timer gamelooptimer;
 
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
-	InventoryService inventoryService = new InventoryService(); 
+	InventoryService inventoryService = new InventoryService();
+	EnemyService enemyService = new EnemyService();
 
 	static final Logger logger = Logger.getLogger(MyPanel.class);
 
 	private static final String BACKGROUND_IMAGE = "/main/java/images/Floor.png";
 
 	public MyPanel() {
+		
 		JPanel MyPanel = new JPanel();
 		MyPanel.setSize(1000, 1000);
 		ArrayList<Food> starterFoods = new ArrayList<>();
@@ -59,7 +65,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		En = new Enemy(100, 100);
 		a = new Animals(150, 250);
 		Pl = new Plants(250, 300);
-		IStick = new ITEM_Stick(300 , 300);
+		IStick = new ITEM_Stick(300, 300);
 		addKeyListener(new KeyInput(p));
 		addMouseListener(new MouseInput(p));
 		// Create a event handler that when a click happends in a item class call the
@@ -169,38 +175,39 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		p.update();
 		a.update();
 		Pl.update();
-		playerService.handleHealth(p, En);
+		playerService.handleHealth(p, En, frame);
 		inventoryService.addToInventory(IStick, p, IStick);
+		enemyService.Pathfinding(p, En);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

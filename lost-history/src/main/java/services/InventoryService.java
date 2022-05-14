@@ -20,7 +20,7 @@ public class InventoryService implements MouseListener {
 	public void addToInventory(Items item, Player player, ITEM_Stick stick) {
 		if (null != item) {
 		
-			if ((item.x == player.x) && (item.y == player.y) && (player.isLoot() == true)
+			if ((item.x == player.getX()) && (item.y == player.getY()) && (player.isLoot() == true)
 					&& (stick.isAllowpickup() == true)) {
 		
 				if (player.getBagItems() != null) {

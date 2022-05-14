@@ -2,24 +2,29 @@ package main.java.services;
 
 import java.awt.Rectangle;
 
+import javax.swing.JFrame;
+
 import main.java.models.Enemy;
 import main.java.models.Player;
 import main.java.models.Food;
+import main.java.models.Frame;
 
 public class PlayerStatisicsService {
 
 	public boolean enemyCollison = false;
 
-	public int handleHealth(Player player, Enemy enemy) {
+	public int handleHealth(Player player, Enemy enemy , Frame frame) {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
 
 		if (totalHealth <= 0) {
 			totalHealth = 0;
+			
+			
 		}
 
 		if ((enemy.x == player.x) && (enemy.y == player.y)) {
-			totalHealth = totalHealth - 10;
+			totalHealth = totalHealth - 1;
 
 		}
 
@@ -30,8 +35,8 @@ public class PlayerStatisicsService {
 //
 //		}
 
-		if ((enemy.x == player.x) && (enemy.y == player.y) && (player.isAttack() == true)) {
-			EHealth = EHealth - 5;
+		if ((enemy.x == player.getX()) && (enemy.y == player.getY()) && (player.isAttack() == true)) {
+			EHealth = EHealth - 10;
 		}
 
 		if (EHealth <= 0) {

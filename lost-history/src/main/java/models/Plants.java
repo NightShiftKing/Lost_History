@@ -14,7 +14,8 @@ public class Plants extends GameObjects {
 
 	public Plants(int x, int y) {
 		super(x, y);
-
+		this.width = x + 30;
+		this.height = y + 30; 
 	}
 
 	public static String getTreeImage() {
