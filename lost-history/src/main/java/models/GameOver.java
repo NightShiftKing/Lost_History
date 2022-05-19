@@ -13,10 +13,11 @@ public class GameOver extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public boolean visable = false; 
 	public GameOver() {
 		JPanel GameOver = new JPanel();
 		GameOver.setSize(1000,1000);
-		GameOver.setVisible(false);
+		GameOver.setVisible(visable);
 		 JButton button1 = new JButton("B1");
 		 button1.setSize(100,100);
 	       	button1.setBackground(Color.WHITE);
@@ -28,6 +29,19 @@ public class GameOver extends JPanel {
 		g2D.fillRect(0, 0, 10000, 10000);
 		
 	}
+
+	public boolean isVisable() {
+		return visable;
+	}
+
+	public void setVisable(boolean visable) {
+		this.visable = visable;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 	
 
 

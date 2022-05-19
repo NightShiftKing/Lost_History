@@ -32,6 +32,8 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 
 	public Enemy En;
 	
+
+	
 	Frame frame;
 
 	Player p;
@@ -45,11 +47,13 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	InventoryService Inv;
 
 	public Timer gamelooptimer;
+	
+	public boolean visable = true; 
 
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
 	InventoryService inventoryService = new InventoryService();
 	EnemyService enemyService = new EnemyService();
-
+	GameOver gameOver = new GameOver();
 	static final Logger logger = Logger.getLogger(MyPanel.class);
 
 	private static final String BACKGROUND_IMAGE = "/main/java/images/Floor.png";
@@ -71,11 +75,63 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		// Create a event handler that when a click happends in a item class call the
 		// inventory service and add to the inventory
 		setFocusable(true);
+		setVisible(visable);
 
 		gamelooptimer = new Timer(10, this);
 		gamelooptimer.start();
 
 	}
+	
+
+	public Frame getFrame() {
+		return frame;
+	}
+
+
+	public void setFrame(Frame frame) {
+		this.frame = frame;
+	}
+
+
+	public boolean isVisable() {
+		return visable;
+	}
+
+
+	public void setVisable(boolean visable) {
+		this.visable = visable;
+	}
+
+
+	public InventoryService getInventoryService() {
+		return inventoryService;
+	}
+
+
+	public void setInventoryService(InventoryService inventoryService) {
+		this.inventoryService = inventoryService;
+	}
+
+
+	public EnemyService getEnemyService() {
+		return enemyService;
+	}
+
+
+	public void setEnemyService(EnemyService enemyService) {
+		this.enemyService = enemyService;
+	}
+
+
+	public GameOver getGameOver() {
+		return gameOver;
+	}
+
+
+	public void setGameOver(GameOver gameOver) {
+		this.gameOver = gameOver;
+	}
+
 
 	public Player getP() {
 		return p;
@@ -175,7 +231,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		p.update();
 		a.update();
 		Pl.update();
-		playerService.handleHealth(p, En, frame);
+		playerService.handleHealth(p, En, frame, this, gameOver);
 		inventoryService.addToInventory(IStick, p, IStick);
 		enemyService.Pathfinding(p, En);
 	}

@@ -8,23 +8,26 @@ import main.java.models.Enemy;
 import main.java.models.Player;
 import main.java.models.Food;
 import main.java.models.Frame;
+import main.java.models.GameOver;
+import main.java.models.MyPanel;
 
 public class PlayerStatisicsService {
 
 	public boolean enemyCollison = false;
 
-	public int handleHealth(Player player, Enemy enemy , Frame frame) {
+	public int handleHealth(Player player, Enemy enemy , Frame frame , MyPanel panel , GameOver gameOver) {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
 
 		if (totalHealth <= 0) {
 			totalHealth = 0;
-			
+			panel.visable = false; 
+			gameOver.visable = true; 
 			
 		}
 
 		if ((enemy.x == player.x) && (enemy.y == player.y)) {
-			totalHealth = totalHealth - 1;
+			totalHealth = totalHealth - 10;
 
 		}
 
