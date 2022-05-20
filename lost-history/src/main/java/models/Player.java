@@ -34,6 +34,8 @@ public class Player extends GameObjects {
 	private boolean attack = false;
 
 	private boolean loot = false;
+	
+	private boolean PlayerDeath = false; 
 
 	private static final String PLAYER_IMAGE = "/main/java/images/steve.png";
 	private static final String HEALTH_BAR = "/main/java/images/health.png";
@@ -300,6 +302,22 @@ public class Player extends GameObjects {
 
 	public void setInventoryService(InventoryService inventoryService) {
 		this.inventoryService = inventoryService;
+	}
+
+
+
+
+
+	public boolean isPlayerDeath() {
+		return PlayerDeath;
+	}
+
+
+
+
+
+	public void setPlayerDeath(boolean playerDeath) {
+		PlayerDeath = playerDeath;
 	}
 
 }

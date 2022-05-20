@@ -1,9 +1,11 @@
+main\java\models\GameOver.class
 main\java\models\MyPanel.class
 main\java\models\Animals.class
 main\java\models\Player.class
 main\java\models\Enemy.class
 main\java\models\Food.class
 main\java\models\KeyInput.class
+main\java\services\EnemyService.class
 main\java\models\GameObjects.class
 main\java\models\ITEM_Stick.class
 main\java\models\MouseInput.class

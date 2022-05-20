@@ -34,6 +34,8 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	
 
 	
+
+	
 	Frame frame;
 
 	Player p;
@@ -49,6 +51,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	public Timer gamelooptimer;
 	
 	public boolean visable = true; 
+	public boolean PlayerDeath = false; 
 
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
 	InventoryService inventoryService = new InventoryService();
@@ -216,6 +219,10 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		a.draw(g2D);
 		Pl.draw(g2D);
 		IStick.draw(g2D);
+		
+		
+			gameOver.paint(g2D);
+		
 	}
 
 	public Image getBackgroundImage() {
@@ -231,6 +238,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		p.update();
 		a.update();
 		Pl.update();
+		
 		playerService.handleHealth(p, En, frame, this, gameOver);
 		inventoryService.addToInventory(IStick, p, IStick);
 		enemyService.Pathfinding(p, En);

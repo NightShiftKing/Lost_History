@@ -18,16 +18,16 @@ public class PlayerStatisicsService {
 	public int handleHealth(Player player, Enemy enemy , Frame frame , MyPanel panel , GameOver gameOver) {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
+		boolean dead = player.isPlayerDeath();
 
 		if (totalHealth <= 0) {
 			totalHealth = 0;
-			panel.visable = false; 
-			gameOver.visable = true; 
 			
+			dead = true; 
 		}
 
 		if ((enemy.x == player.x) && (enemy.y == player.y)) {
-			totalHealth = totalHealth - 10;
+			totalHealth = totalHealth - 100;
 
 		}
 

@@ -19,22 +19,20 @@ public class Frame extends JFrame {
 		
 		GameOver GameOver;
 		
-		GameOver = new GameOver();
+		
 
 		panel = new MyPanel();
 		
 			panel.setVisable(panel.visable);
-			GameOver.setVisable(GameOver.visable);
-			
 		
+			
+			
 
 		// this controls the frame
 		JFrame frame = new JFrame();
 		frame.setSize(2000, 2000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(GameOver); 
-		frame.add(panel);
-		
+		frame.add(panel); 
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
