@@ -56,7 +56,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
 	InventoryService inventoryService = new InventoryService();
 	EnemyService enemyService = new EnemyService();
-	GameOver gameOver = new GameOver();
+	GameOver gameOver = new GameOver(0,0);
 	static final Logger logger = Logger.getLogger(MyPanel.class);
 
 	private static final String BACKGROUND_IMAGE = "/main/java/images/Floor.png";
@@ -73,6 +73,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		a = new Animals(150, 250);
 		Pl = new Plants(250, 300);
 		IStick = new ITEM_Stick(300, 300);
+		
 		addKeyListener(new KeyInput(p));
 		addMouseListener(new MouseInput(p));
 		// Create a event handler that when a click happends in a item class call the
@@ -221,7 +222,7 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		IStick.draw(g2D);
 		
 		
-			gameOver.paint(g2D);
+			gameOver.draw(g2D);
 		
 	}
 

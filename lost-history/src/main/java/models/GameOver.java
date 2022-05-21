@@ -21,20 +21,24 @@ public class GameOver  implements ActionListener {
 	private static final  String DEATH_IMAGE = "/main/java/images/DeathScreen.png";
 	                                           
 	JButton button; 
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 
-	public GameOver() {
+	public GameOver(int x, int y) {
 	
 	}
-	public void paint(Graphics g) {
+	public void draw(Graphics g) {
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(getDeathScreenImage(), x, y, null); 
+		g2D.drawImage(getDeathScreenImage(), x, y, null);
 		
 		button = new JButton();
+		button.setLocation(0, 0);
 		button.setBounds(100, 100, 250, 100);
 		button.addActionListener(this);
-		button.setText("Play Again");
+		button.setBackground(Color.RED);
+		button.setForeground(Color.BLUE);
+		button.setText("Play Again?");
+		
 	}
 
 
@@ -54,8 +58,7 @@ public Image getDeathScreenImage() {
 	}
 @Override
 public void actionPerformed(ActionEvent e) {
-	// TODO Auto-generated method stub
-	
+	System.out.println("Button pressed"); 
 }
 	
 
