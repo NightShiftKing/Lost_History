@@ -16,28 +16,25 @@ public class Frame extends JFrame {
 		// this controls the panel
 
 		MyPanel panel;
-		
-		GameOver GameOver;
-		
-		
+
+	
 
 		panel = new MyPanel();
-		
-			panel.setVisable(panel.visable);
-		
-			
-			
+
+		panel.setVisable(panel.visable);
 
 		// this controls the frame
 		JFrame frame = new JFrame();
+	
 		frame.setSize(2000, 2000);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(panel); 
+
+		frame.add(panel);
+	
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
-		
-		
+
+	
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 

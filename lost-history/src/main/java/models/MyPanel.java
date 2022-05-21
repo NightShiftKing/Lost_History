@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -51,12 +52,12 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	public Timer gamelooptimer;
 	
 	public boolean visable = true; 
-	public boolean PlayerDeath = false; 
+	public boolean playerDeath = false; 
 
 	PlayerStatisicsService playerService = new PlayerStatisicsService();
 	InventoryService inventoryService = new InventoryService();
 	EnemyService enemyService = new EnemyService();
-	GameOver gameOver = new GameOver(0,0);
+	GameOverPanel gameOver = new GameOverPanel();
 	static final Logger logger = Logger.getLogger(MyPanel.class);
 
 	private static final String BACKGROUND_IMAGE = "/main/java/images/Floor.png";
@@ -127,12 +128,12 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 	}
 
 
-	public GameOver getGameOver() {
+	public GameOverPanel getGameOver() {
 		return gameOver;
 	}
 
 
-	public void setGameOver(GameOver gameOver) {
+	public void setGameOver(GameOverPanel gameOver) {
 		this.gameOver = gameOver;
 	}
 
@@ -221,8 +222,13 @@ public class MyPanel extends JPanel implements ActionListener, MouseListener {
 		Pl.draw(g2D);
 		IStick.draw(g2D);
 		
-		
+		//if(this.playerDeath == true) {
+	
 			gameOver.draw(g2D);
+			
+			
+	//	}
+		
 		
 	}
 

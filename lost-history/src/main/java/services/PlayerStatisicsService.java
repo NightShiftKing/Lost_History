@@ -8,14 +8,14 @@ import main.java.models.Enemy;
 import main.java.models.Player;
 import main.java.models.Food;
 import main.java.models.Frame;
-import main.java.models.GameOver;
+import main.java.models.GameOverPanel;
 import main.java.models.MyPanel;
 
 public class PlayerStatisicsService {
 
 	public boolean enemyCollison = false;
 
-	public int handleHealth(Player player, Enemy enemy , Frame frame , MyPanel panel , GameOver gameOver) {
+	public int handleHealth(Player player, Enemy enemy , Frame frame , MyPanel panel , GameOverPanel gameOver) {
 		int totalHealth = player.getHealth();
 		int EHealth = enemy.getEnemyHealth();
 		boolean dead = player.isPlayerDeath();
